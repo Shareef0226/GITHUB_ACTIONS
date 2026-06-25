@@ -4,6 +4,7 @@ on:
   push:  # Auto trigger when changes are pushed to develop branch
     branches:
       - develop
+      - main
 
   # Optional: Uncomment if you want PR trigger to main
   pull_request:
