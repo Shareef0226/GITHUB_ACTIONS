@@ -1,0 +1,13 @@
+name: Checkout Demo
+
+on: push
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4   # ✅ This downloads your repo code
+
+      - name: List files
+        run: ls                     # ✅ Now you can see repo files
