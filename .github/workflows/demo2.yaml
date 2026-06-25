@@ -1,27 +1,36 @@
-name: SHAREEFs-DEMO2 # name of the workflow
+name: SHAREEFs-DEMO2  # Name of the workflow
 
 on:
-  push:
+  push:  # Auto trigger when changes are pushed to develop branch
     branches:
       - develop
-  pull_request:
-    branches:
-      - main
+
+  # Optional: Uncomment if you want PR trigger to main
+  # pull_request:
+  #   branches:
+  #     - main  # Triggers when PR targets main branch
+
+  workflow_dispatch:  # Manual trigger for ALL branches
 
 jobs:
   job1-build:
+    name: Build Phase
     runs-on: ubuntu-latest
     steps:
-# single run
+      # Step 1: Simple command
       - name: build-phase
         run: echo "Hello, world!"
-# multiple shell commands executions    
+
+      # Step 2: Multiple shell commands
       - name: multiple shell commands
         run: |
+          echo "Listing files:"
           ls
+          echo "Current directory:"
           pwd
-# multiple jobs execution and its own runner(runs-on)
+
   job2-test:
+    name: Test Phase
     runs-on: ubuntu-latest
     needs: job1-build
     steps:
@@ -29,14 +38,33 @@ jobs:
         run: echo "Testing Done!"
 
   job3-deploy:
+    name: Deploy Phase
     runs-on: ubuntu-latest
-    needs:
-      - job2-test
+    needs: job2-test
     steps:
       - name: deploy-phase
         run: echo "Deployment Done!"
 
-      - name: develop branch
-        run: echo "yes I triggered develop branch"    
+  
+# Optional: Run only if triggered from develop branch
+# ✅ Case 1: Push to develop
+# ✅ Workflow runs
+# ✅ This step also runs ✅
+# Output:
+# Triggered from develop branch ✅
 
+# ✅ Case 2: Manual run on main
+# ✅ Workflow runs
+# ❌ This step will be SKIPPED
+
+# ✅ Case 3: Manual run on develop
+# ✅ Workflow runs
+# ✅ This step runs
+      - name: develop branch check
+        if: github.ref == 'refs/heads/develop'
+        run: echo "Triggered from develop branch ✅"
+
+      # General info
+      - name: print execution info
+        run: echo "Workflow executed successfully 🚀"
         
