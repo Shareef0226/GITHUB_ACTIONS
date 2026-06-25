@@ -15,12 +15,15 @@ jobs:
 # multiple jobs execution and its own runner(runs-on)
   job2:
     runs-on: ubuntu-latest
+    needs: job1
     steps:
       - name: test-phase
         run: echo "Testing Done!"
 
   job3:
     runs-on: ubuntu-latest
+    needs:
+      - job2
     steps:
       - name: deploy-phase
         run: echo "Deployment Done!"
