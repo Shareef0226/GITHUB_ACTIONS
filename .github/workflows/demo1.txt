@@ -1,4 +1,4 @@
-name: SHAREEF # name of the workflow
+name: SHAREEFs-DEMO1 # name of the workflow
 on: workflow_dispatch #manual trigger
 jobs:
   job1-build:
