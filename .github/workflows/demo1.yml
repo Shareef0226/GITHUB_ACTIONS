@@ -1,15 +1,30 @@
-name: SHAREEF
-on: workflow_dispatch
+name: SHAREEF # name of the workflow
+on: workflow_dispatch #manual trigger
 jobs:
-  build:
+  job1:
     runs-on: ubuntu-latest
     steps:
+# single run
       - name: hello_world
         run: echo "Hello, world!"
-        
+# multiple shell commands executions    
       - name: multiple shell commands
         run: |
           ls
           pwd
+# multiple jobs execution and its own runner(runs-on)
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test-phase
+        run: echo "Testing Done!"
+
+  job3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy-phase
+        run: echo "Deployment Done!"
+    
+    
 
         
