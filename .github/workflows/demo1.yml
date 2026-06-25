@@ -4,5 +4,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Run a one-line script
+      - name: hello_world
         run: echo Hello, world!
+        
+      - name: multiple shell commnads execution
+        run: |
+          echo: "ls"
+          echo: "pwd"
+        
