@@ -1,11 +1,11 @@
 name: SHAREEFs-DEMO2 # name of the workflow
-on: workflow_dispatch #manual trigger
+on: push
 jobs:
   job1-build:
     runs-on: ubuntu-latest
     steps:
 # single run
-      - name: hello_world
+      - name: build-phase
         run: echo "Hello, world!"
 # multiple shell commands executions    
       - name: multiple shell commands
