@@ -1,5 +1,8 @@
 name: SHAREEFs-DEMO2 # name of the workflow
-on: push
+on:
+  push:
+    branches:
+      - develop
 jobs:
   job1-build:
     runs-on: ubuntu-latest
