@@ -11,3 +11,7 @@ jobs:
 
       - name: List files
         run: ls                     # ✅ Now you can see repo files
+
+      - name: Print index.html
+        run: cat index.html         # ✅ view and print the conetent inside the html file in the logs
+
