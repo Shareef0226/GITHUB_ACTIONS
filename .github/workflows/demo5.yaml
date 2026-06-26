@@ -46,4 +46,17 @@ jobs:
           
           echo "Fruit: ${{ github.event.inputs.fruit }}"
           echo "fruit is : ${{ inputs.fruit }}"
+
+      - name: Print GitHub context #predifed varibles
+        run: |
+          echo "Event: ${{ github.event_name }}"
+          echo "Actor: ${{ github.actor }}"
+          echo "Branch: ${{ github.ref }}"
+          echo "Repository: ${{ github.repository }}"
+          echo "Workflow: ${{ github.workflow }}"
+          echo "Run ID: ${{ github.run_id }}"
+          echo "Run Number: ${{ github.run_number }}"
+          echo "Commit SHA: ${{ github.sha }}"
+          echo "Runner OS: ${{ runner.os }}
+
           
