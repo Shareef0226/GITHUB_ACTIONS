@@ -1,0 +1,11 @@
+name: ENV_VAR_DEMO
+
+on: push
+env:
+  APP_ENV : "dev"
+jobs:
+  env_var_demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        run: echo "env names is $APP_ENV"                   # ✅ Print the env name
