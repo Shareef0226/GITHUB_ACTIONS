@@ -59,4 +59,19 @@ jobs:
           echo "Commit SHA: ${{ github.sha }}"
           echo "Runner OS: ${{ runner.os }}"
 
+      - name: Pretty print JSON #print all github variables 
+        run: echo '${{ toJson(github) }}' | jq .
+# OR print varibales indvidually
+      - name: Print all env context
+        run: echo '${{ toJson(env) }}'
+
+      - name: Print all vars context
+        run: echo '${{ toJson(vars) }}'
+
+      - name: Print all inputs context
+        run: echo '${{ toJson(inputs) }}'
+
+
+          
+
           
