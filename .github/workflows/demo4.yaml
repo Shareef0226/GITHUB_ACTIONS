@@ -10,7 +10,12 @@ jobs:
 # job level varibales declartion  
     env:
       APP_ENV: "test"
+      
     runs-on: ubuntu-latest
     steps:
       - name: PRINT THE ENV NAME
+# step level varaibles declaration      
+        env:
+          APP_ENV: "prod"
+          
         run: echo "env names is $APP_ENV"                   # ✅ Print the env name
