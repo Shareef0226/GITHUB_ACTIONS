@@ -1,0 +1,29 @@
+name: Multiple Inputs Demo
+
+on:
+  workflow_dispatch:
+    inputs:
+      username:
+        description: "Enter your username"
+        required: true
+        default: "shareef"
+
+      environment:
+        description: "Select environment"
+        required: true
+        default: "dev"
+
+      version:
+        description: "Enter application version"
+        required: false
+        default: "v1.0"
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print all inputs
+        run: |
+          echo "Username: ${{ github.event.inputs.username }}"
+          echo "Environment: ${{ github.event.inputs.environment }}"
+          echo "Version: ${{ github.event.inputs.version }}"
