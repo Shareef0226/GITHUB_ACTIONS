@@ -57,6 +57,6 @@ jobs:
           echo "Run ID: ${{ github.run_id }}"
           echo "Run Number: ${{ github.run_number }}"
           echo "Commit SHA: ${{ github.sha }}"
-          echo "Runner OS: ${{ runner.os }}
+          echo "Runner OS: ${{ runner.os }}"
 
           
