@@ -1,11 +1,16 @@
 name: ENV_VAR_DEMO
 
 on: push
+# work flow level varibales
 env:
-  APP_ENV : "dev"
+  APP_ENV: "dev"
+  
 jobs:
   env_var_demo:
+# job level varibales declartion  
+    env:
+      APP_ENV: "test"
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: PRINT THE ENV NAME
         run: echo "env names is $APP_ENV"                   # ✅ Print the env name
