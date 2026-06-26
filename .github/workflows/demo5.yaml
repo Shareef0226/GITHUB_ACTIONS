@@ -25,6 +25,7 @@ on:
         default: "orange"
         options:
           - apple
+          - orange
           - banana
           - cherries
 
